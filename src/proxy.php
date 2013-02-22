@@ -351,7 +351,7 @@ class AjaxProxy
      */
     protected function _makeRequest()
     {
-        $url = $this->_forwardHost . $this->_route;
+	$url = $this->_forwardHost . str_replace( ' ', '%20', $this->_route );
 
         # Check for cURL. If it isn't loaded, fall back to fopen()
         if(function_exists('curl_init'))
